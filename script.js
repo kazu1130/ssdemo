@@ -8,7 +8,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use('/data', express.static('./data'));
-app.listen(80);
+if(process.argv.length>2){
+  app.listen(process.argv[2]);  
+} else {
+  app.listen(80);
+}
 
 app.post('/', function(req, res) {
   (async () => {

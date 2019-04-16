@@ -26,9 +26,9 @@ jobs:
           name: Access Test
           command: |
             mkdir data
-            npm start &
+            npm start 10080&
             sleep 3
-            curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'url=%68%74%74%70%3a%2f%2f%6c%6f%63%61%6c%68%6f%73%74%2f' localhost
+            curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'url=%68%74%74%70%3a%2f%2f%6c%6f%63%61%6c%68%6f%73%74%2f' localhost:10080
             ls ./data/
       - save_cache:
           paths:
