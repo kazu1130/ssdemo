@@ -31,6 +31,7 @@ jobs:
       - run:
           name: Access Test2
           command: |
+            sleep 3
             curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'url=%68%74%74%70%3a%2f%2f%6c%6f%63%61%6c%68%6f%73%74%2f' 127.0.0.1:10080
             ls ./data/
       - save_cache:
