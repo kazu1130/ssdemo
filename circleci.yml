@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:8.4.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-v1-{{ .Branch }}-
+            - node-v1-
+      - run:
+          name: System information
+          command: |
+            echo "Node $(node -v)"
+            echo "npm v$(npm --v)"
+      - run:
+          name: Install dependencies
+          command: npm i
+      - run:
+          name: NPM Test
+          command: npm test
+      - run:
+          name: Access Test
+          command: |
+            mkdir data
+            npm run
+            sleep 3
+            curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'url=%68%74%74%70%3a%2f%2f%6c%6f%63%61%6c%68%6f%73%74%2f' localhost
+            ls ./data/
+      - save_cache:
+          paths:
+            - ~/usr/local/lib/node_modules  # location depends on npm version
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+

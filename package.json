@@ -1,0 +1,24 @@
+{
+  "name": "ssdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazu1130/ssdemo.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kazu1130/ssdemo/issues"
+  },
+  "homepage": "https://github.com/kazu1130/ssdemo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "puppeteer": "^1.14.0"
+  }
+}
